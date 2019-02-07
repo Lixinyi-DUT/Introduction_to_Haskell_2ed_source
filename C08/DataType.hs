@@ -1,8 +1,8 @@
 -- DataType.hs
 
-data Day = Mon | Tue | Wed | Thu | Fri | Sat | Sun 
+data Day = Mon | Tue | Wed | Thu | Fri | Sat | Sun
                                     deriving (Show,Read, Eq,Ord,Enum)
-{-                  
+{-
 tomorrow :: Day -> Day
 tomorrow Mon = Tue
 tomorrow Tue = Wed
@@ -32,7 +32,7 @@ data Book = Book {
        }
 {-
 incrisePrice (b1,b2) b pri =
-          ((b:b1),Book (name b) (author b) (isbn b) (price b + pri))
+          ((b:b1),(Book (name b) (author b) (isbn b) (price b + pri)):b2)
 -}
 {-
 incrisePrice (b1,b2) (Book nm ath isbn prc) pri =
@@ -40,7 +40,7 @@ incrisePrice (b1,b2) (Book nm ath isbn prc) pri =
 -}
 
 {-
-increasePrice (b1,b2) b@(Book nm ath isbn prc) pri = 
+increasePrice (b1,b2) b@(Book nm ath isbn prc) pri =
                            (b:b1,(Book nm ath isbn (prc+pri)):b2)
 -}
 
@@ -103,8 +103,8 @@ eval TRUE  = True
 eval FALSE = False
 eval (IF con b1 b2) | eval con == True  = eval b1
                     | eval con == False = eval b2
-                    
-eval' :: [BoolExp] -> Bool 
+
+eval' :: [BoolExp] -> Bool
 eval' [TRUE]  = True
 eval' [FALSE]  = False
 eval' ((IF TRUE  b1 b2):xs) = eval' (b1:xs)
