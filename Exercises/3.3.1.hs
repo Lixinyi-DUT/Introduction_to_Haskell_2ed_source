@@ -1,9 +1,9 @@
 nand, nor, xor :: Bool -> Bool -> Bool
 nand True True = False
-nand _ _ = True
+nand _ _       = True
 
 nor False False = True
-nor _ _ = False
+nor _ _         = False
 
 -- https://en.wikipedia.org/wiki/NOR_logic#XOR
 xor b1 b2 = nor (nor anora bnorb) anorb
